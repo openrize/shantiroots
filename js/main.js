@@ -150,7 +150,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.section-title, .category-card, .product-card').forEach(el => {
+    document.querySelectorAll('.section-title, .category-card, .product-card, .blog-card').forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);
     });
