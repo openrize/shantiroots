@@ -1,25 +1,24 @@
 :root {
-    /* Color Palette - Earthy & Premium */
-    --color-primary: #556B2F; /* Dark Olive Green */
-    --color-primary-light: #8FBC8F; /* Dark Sea Green */
-    --color-secondary: #A0522D; /* Sienna */
-    --color-accent: #D2B48C; /* Tan */
-    --color-bg: #FDFBF7; /* Off-white / Cream */
-    --color-bg-alt: #F5F5F0; /* Light Greyish Cream */
-    --color-text: #2F2F2F; /* Soft Black */
-    --color-text-muted: #666;
+    /* Color Palette - Warm & Organic (Inspiration Image) */
+    --color-primary: #2D3E2D; /* Deep Forest Green */
+    --color-primary-soft: #4A5D4A;
+    --color-secondary: #B4A07F; /* Tan/Gold Accent */
+    --color-accent: #E5D5C0; /* Muted Sand */
+    --color-bg: #F4F1EA; /* Warm Light Beige / Paper */
+    --color-bg-alt: #EBE7DD; /* Slightly darker beige */
     --color-white: #ffffff;
+    --color-text: #333333;
+    --color-text-muted: #555555;
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
     
-    /* Spacing */
+    /* Spacing & Shadows */
     --container-width: 1200px;
-    --section-padding: 80px 0;
-    
-    /* Transitions */
-    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --section-padding: 100px 0;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * {
@@ -88,13 +87,13 @@ img {
 
 /* Header & Nav */
 .header {
-    background-color: rgba(253, 251, 247, 0.95);
+    background-color: rgba(244, 241, 234, 0.98);
     backdrop-filter: blur(10px);
-    padding: 20px 0;
+    padding: 25px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .nav {
@@ -105,21 +104,23 @@ img {
 
 .logo a {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--color-primary);
+    letter-spacing: -0.01em;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 40px;
 }
 
 .nav-links a {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -160,12 +161,12 @@ img {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    font-size: 0.9rem;
+    padding: 15px 35px;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
+    letter-spacing: 0.15em;
+    border-radius: 2px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -177,30 +178,37 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: var(--color-primary);
+    background-color: var(--color-primary-soft);
+    border-color: var(--color-primary-soft);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--color-text);
-    border: 1px solid var(--color-text);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-text);
+    background-color: var(--color-primary);
     color: var(--color-white);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-secondary);
 }
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
     background: url('/assets/hero/hero.png') no-repeat center center/cover;
+    background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -209,121 +217,134 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(244, 241, 234, 0.4);
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    color: var(--color-white);
-    max-width: 800px;
+    color: var(--color-primary);
+    max-width: 900px;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 4.8rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 400;
 }
 
-.hero p {
-    font-size: 1.2rem;
+.hero p.tagline {
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+    color: var(--color-primary-soft);
+}
+
+.hero p.description {
+    font-size: 1.05rem;
     margin-bottom: 40px;
-    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-muted);
+    line-height: 1.8;
 }
 
 .hero-btns {
     display: flex;
     gap: 20px;
     justify-content: center;
+    margin-top: 40px;
 }
 
 /* Category Grid */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
 .category-card {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
+    background: var(--color-white);
+    padding-bottom: 20px;
+    border-radius: 0;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: var(--transition);
+    border-bottom: 3px solid transparent;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--color-secondary);
 }
 
 .category-card img {
     width: 100%;
-    height: 100%;
+    height: 250px;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    margin-bottom: 20px;
 }
 
-.category-card:hover img {
-    transform: scale(1.05);
+.category-card h3 {
+    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 5px;
 }
 
-.category-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.category-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.category-card p {
+    display: none; /* Layout in image doesn't show description */
 }
 
 /* Product Cards */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
 }
 
 .product-card {
     background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 8px;
+    padding: 0;
+    border-radius: 0;
     transition: var(--transition);
-    border: 1px solid transparent;
-}
-
-.product-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transform: translateY(-5px);
-    border-color: var(--color-accent);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-img {
-    height: 250px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 4px;
+    height: 300px;
+    margin-bottom: 0;
 }
 
-.product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.product-info {
+    padding: 25px;
 }
 
 .product-info h3 {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    color: var(--color-primary);
 }
 
 .product-price {
-    font-weight: 700;
-    color: var(--color-primary);
-    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 20px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.product-card .btn-primary {
+    width: 100%;
+    padding: 12px;
+    border-radius: 0;
 }
 
 /* Shop Layout */
@@ -482,4 +503,26 @@ img {
         gap: 20px;
         text-align: center;
     }
+}
+
+/* Card Helpers */
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card .btn-primary {
+    border-radius: 0;
+    margin-top: auto;
 }

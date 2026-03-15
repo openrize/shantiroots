@@ -25,12 +25,12 @@ function initHome() {
             card.className = 'category-card';
             card.innerHTML = `
                 <img src="${category.image}" alt="${category.name}">
-                <div class="category-content">
-                    <h3>${category.name}</h3>
-                    <p>${category.description}</p>
-                    <a href="/shop.html?category=${category.id}" class="btn btn-secondary" style="border-color: white; color: white; margin-top: 15px;">View Products</a>
-                </div>
+                <h3>${category.name}</h3>
+                <div style="font-size: 1.2rem; color: var(--color-secondary);">❦</div>
+                <a href="/shop.html?category=${category.id}" class="stretched-link"></a>
             `;
+            // Add custom style for stretched link if not in CSS
+            card.style.position = 'relative';
             categoryGrid.appendChild(card);
         });
     }
@@ -124,12 +124,12 @@ function renderProducts(productList, container) {
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-img">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <img src="${product.image}" alt="${product.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
-                <button class="btn btn-primary" style="margin-top: 15px; width: 100%;" onclick="addToCart(${product.id})">Add to Cart</button>
+                <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart ❦</button>
             </div>
         `;
         container.appendChild(card);

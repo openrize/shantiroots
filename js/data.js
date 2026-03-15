@@ -38,33 +38,33 @@ export const products = [
     },
     {
         id: 2,
-        name: 'Triphala Powder',
-        category: 'wellness',
-        price: 18.50,
-        description: 'Classic Ayurvedic digestive support and detoxification.',
-        benefits: ['Digestive support', 'Colon cleanse', 'Antioxidant rich'],
-        ingredients: ['Amalaki', 'Bibhitaki', 'Haritaki'],
-        image: 'https://images.unsplash.com/photo-1471193945509-9ad0617afabf?q=80&w=1000'
+        name: 'Turmeric Glow Cream',
+        category: 'skincare',
+        price: 32.00,
+        description: 'Brightening cream for a natural, healthy glow and even skin tone.',
+        benefits: ['Brightens skin', 'Even tone', 'Moisturizes'],
+        ingredients: ['Turmeric', 'Saffron', 'Sandalwood Oil', 'Vitamin E'],
+        image: '/assets/products/face_cream.png'
     },
     {
         id: 3,
-        name: 'Brahmi Capsules',
+        name: 'Calming Herbal Tea',
         category: 'wellness',
-        price: 22.00,
-        description: 'Rejuvenating herb for brain health and memory concentration.',
-        benefits: ['Brain health', 'Memory support', 'Focus enhancer'],
-        ingredients: ['Brahmi (Bacopa monnieri)'],
-        image: 'https://images.unsplash.com/photo-1512290923902-8a9f81da2c0e?q=80&w=1000'
+        price: 15.00,
+        description: 'A soothing caffeine-free blend for evening relaxation.',
+        benefits: ['Sleep aid', 'Stress relief', 'Calming'],
+        ingredients: ['Tulsi', 'Chamomile', 'Lemon Balm'],
+        image: 'https://images.unsplash.com/photo-1594631252845-29fc458695d7?q=80&w=1000'
     },
     {
         id: 4,
-        name: 'Turmeric Golden Milk',
-        category: 'wellness',
-        price: 19.99,
-        description: 'Soothing blend of turmeric and spices for holistic wellness.',
-        benefits: ['Anti-inflammatory', 'Immunity boost', 'Joint support'],
-        ingredients: ['Turmeric', 'Coconut Milk Powder', 'Cinnamon', 'Black Pepper'],
-        image: 'https://images.unsplash.com/photo-1615485290382-441e4d0c9cb5?q=80&w=1000'
+        name: 'Stress Relief Oil',
+        category: 'relaxation',
+        price: 28.00,
+        description: 'Grounding essential oil blend for meditation and focus.',
+        benefits: ['Grounding', 'Mental clarity', 'Calming'],
+        ingredients: ['Sandalwood Essential Oil', 'Jojoba Carrier Oil'],
+        image: 'https://images.unsplash.com/photo-1605641151676-e9185e3a388f?q=80&w=1000'
     },
     {
         id: 5,

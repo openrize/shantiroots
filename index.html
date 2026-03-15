@@ -20,7 +20,7 @@
     <header id="main-header" class="header">
         <nav class="nav container">
             <div class="logo">
-                <a href="/">ShantiRoots</a>
+                <a href="/index.html">ShantiRoots</a>
             </div>
             <ul class="nav-links">
                 <li><a href="/index.html" class="active">Home</a></li>
@@ -37,70 +37,114 @@
     </header>
 
     <main id="app">
-        <!-- Content will be dynamically rendered here if needed, or static for SEO -->
         <section id="hero" class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content container">
-                <h1 class="fade-up">ShantiRoots — Ayurvedic Self-Care for Mind, Body & Soul</h1>
-                <p class="fade-up" style="animation-delay: 0.2s;">Discover herbal wellness, skincare, and relaxation products designed for balance, vitality, and inner peace.</p>
-                <div class="hero-btns fade-up" style="animation-delay: 0.4s;">
+                <h1 class="fade-up">ShantiRoots</h1>
+                <p class="tagline fade-up" style="animation-delay: 0.1s;">Ayurvedic Self-Care for Mind, Body & Soul</p>
+                <p class="description fade-up" style="animation-delay: 0.2s;">Discover herbal wellness, skincare, and relaxation products designed for balance, vitality, and inner peace.</p>
+                <div class="hero-btns fade-up" style="animation-delay: 0.3s;">
                     <a href="/shop.html" class="btn btn-primary">Shop Now</a>
                     <a href="#collections" class="btn btn-secondary">Explore Collections</a>
                 </div>
+                <p class="hero-badges fade-up" style="animation-delay: 0.4s; margin-top: 40px; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--color-primary-soft);">Organic • Herbal • Authentic Ayurveda</p>
             </div>
         </section>
 
-        <section id="collections" class="sections container">
-            <h2 class="section-title">Featured Categories</h2>
-            <div class="category-grid">
-                <!-- Data will populate here -->
+        <section id="collections" class="section container">
+            <div class="category-grid" id="category-grid">
+                <!-- Categories rendered here -->
             </div>
         </section>
 
-        <section id="best-sellers" class="section bg-light">
+        <section id="best-sellers" class="section" style="background-color: var(--color-bg-alt);">
             <div class="container">
                 <h2 class="section-title">Best Sellers</h2>
+                <p style="text-align: center; margin-top: -40px; margin-bottom: 50px; color: var(--color-text-muted); font-style: italic;">Our most-loved Ayurvedic products.</p>
                 <div class="product-grid" id="featured-products">
-                    <!-- Data will populate here -->
+                    <!-- Products rendered here -->
                 </div>
+            </div>
+        </section>
+
+        <section id="essence" class="section container">
+            <div class="split-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <div class="essence-content">
+                    <h2 style="font-size: 2.8rem; margin-bottom: 30px; font-family: var(--font-heading); color: var(--color-primary);">The Essence of Ayurveda</h2>
+                    <p style="margin-bottom: 25px; line-height: 1.8; color: var(--color-text-muted);">Embrace holistic wellness with ShantiRoots. Our natural, Ayurvedic remedies nurture your body, mind, and spirit. We combine ancient wisdom with modern quality standards to bring you products that truly transform.</p>
+                    <a href="/about.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="essence-image" style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000" alt="Essence of Ayurveda" style="width: 100%; border-radius: 4px; box-shadow: var(--card-shadow);">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section" style="background-color: var(--color-bg-alt);">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;">
+                    <div class="testimonial-card" style="background: white; padding: 40px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 20px;">
+                        <img src="https://i.pravatar.cc/100?u=priya" alt="Priya S." style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
+                        <div>
+                            <p style="font-style: italic; margin-bottom: 10px; font-size: 0.95rem;">"ShantiRoots has transformed my wellness routine. I feel more balanced and energized."</p>
+                            <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-primary);">— Priya S.</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="background: white; padding: 40px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 20px;">
+                        <img src="https://i.pravatar.cc/100?u=anjali" alt="Anjali M." style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
+                        <div>
+                            <p style="font-style: italic; margin-bottom: 10px; font-size: 0.95rem;">"The herbal glow cream is amazing! My skin has never looked better!"</p>
+                            <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-primary);">— Anjali M.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter-section" class="section container" style="text-align: center;">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; color: var(--color-primary);">Join Our Wellness Community</h2>
+                <p style="margin-bottom: 30px; color: var(--color-text-muted);">Subscribe now & get 10% off your first order!</p>
+                <form class="newsletter-form" style="display: flex; gap: 10px;">
+                    <input type="email" placeholder="Your email address" required style="flex: 1; padding: 15px; border: 1px solid #ddd; background: white; border-radius: 2px;">
+                    <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Subscribe</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" style="background-color: var(--color-primary); color: var(--color-white); padding: 80px 0 30px;">
         <div class="container footer-grid">
             <div class="footer-info">
-                <h3>ShantiRoots</h3>
+                <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 20px;">ShantiRoots</h3>
                 <p>Ayurvedic Self-Care for Mind, Body & Soul</p>
-                <div class="social-links">
+                <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="/shop.html">Shop</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/blog.html">Blog</a></li>
-                    <li><a href="/faq.html">FAQ</a></li>
+                <h4 style="margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.8;">Quick Links</h4>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 12px;"><a href="/shop.html">Shop</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/about.html">About</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/blog.html">Blog</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/faq.html">FAQ</a></li>
                 </ul>
             </div>
-            <div class="footer-newsletter">
-                <h4>Join Our Newsletter</h4>
-                <p>Subscribe & get 10% off your first order</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
+            <div class="footer-contact">
+                <h4 style="margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.8;">Contact</h4>
+                <p style="margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> openrize@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i> Chicago, IL</p>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.7; margin-top: 50px;">
             <p>&copy; 2025 ShantiRoots. All herbal rights reserved.</p>
-            <div class="legal-links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms & Conditions</a>
+            <div class="legal-links" style="display: flex; gap: 20px;">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms & Conditions</a>
             </div>
         </div>
     </footer>
