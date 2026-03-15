@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — ShantiRoots</title>
+    <meta name="description" content="Get in touch with ShantiRoots for support, inquiries, or personalized wellness advice.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header id="main-header" class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <a href="/">ShantiRoots</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop.html">Shop</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container section">
+        <h1 class="section-title">Get In Touch</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; margin-top: 50px;">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p style="margin-bottom: 40px; color: var(--color-text-muted);">Have questions about our products or your Ayurvedic journey? We're here to help.</p>
+                
+                <ul style="list-style: none;">
+                    <li style="display: flex; gap: 20px; align-items: center; margin-bottom: 30px;">
+                        <span style="width: 50px; height: 50px; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-primary);">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <div>
+                            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--color-text-muted);">Email</h4>
+                            <p style="font-weight: 600;">openrize@gmail.com</p>
+                        </div>
+                    </li>
+                    <li style="display: flex; gap: 20px; align-items: center; margin-bottom: 30px;">
+                        <span style="width: 50px; height: 50px; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-primary);">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <div>
+                            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--color-text-muted);">Phone</h4>
+                            <p style="font-weight: 600;">+1 773-541-1711</p>
+                        </div>
+                    </li>
+                    <li style="display: flex; gap: 20px; align-items: center;">
+                        <span style="width: 50px; height: 50px; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--color-primary);">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        <div>
+                            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--color-text-muted);">Location</h4>
+                            <p style="font-weight: 600;">Chicago, IL</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div style="margin-top: 50px;">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" style="font-size: 1.5rem; color: var(--color-primary);"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="font-size: 1.5rem; color: var(--color-primary);"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" style="font-size: 1.5rem; color: var(--color-primary);"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contact-form" style="background: var(--color-bg-alt); padding: 40px; border-radius: 8px;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="How can we help you?" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>ShantiRoots</h3>
+                <p>Ayurvedic Self-Care for Mind, Body & Soul</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/shop.html">Shop</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Join Our Newsletter</h4>
+                <p>Subscribe & get 10% off your first order</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShantiRoots. All herbal rights reserved.</p>
+            <div class="legal-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+    <script>
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your message has been sent successfully. We will get back to you shortly.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
