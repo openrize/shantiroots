@@ -2,7 +2,7 @@ import { categories, products } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Determine which page we are on
-    const isShopPage = window.location.pathname.includes('shop');
+    const isShopPage = window.location.pathname.includes('shop.html');
     
     if (isShopPage) {
         initShop();
