@@ -1,14 +1,14 @@
 :root {
     /* Color Palette - Warm & Organic (Inspiration Image) */
-    --color-primary: #2D3E2D; /* Deep Forest Green */
-    --color-primary-soft: #4A5D4A;
-    --color-secondary: #B4A07F; /* Tan/Gold Accent */
-    --color-accent: #E5D5C0; /* Muted Sand */
-    --color-bg: #F4F1EA; /* Warm Light Beige / Paper */
-    --color-bg-alt: #EBE7DD; /* Slightly darker beige */
+    --color-primary: #1D311D; /* Bolder Deep Forest Green */
+    --color-primary-soft: #3A4D3A;
+    --color-secondary: #C4A484; /* Slightly brighter Tan/Gold */
+    --color-accent: #E5D5C0;
+    --color-bg: #F8F6F1; /* Slightly brighter warm beige */
+    --color-bg-alt: #F0EDE4; 
     --color-white: #ffffff;
-    --color-text: #333333;
-    --color-text-muted: #555555;
+    --color-text: #1A1A1A; /* Brighter (higher contrast) text */
+    --color-text-muted: #444444; /* Brighter (higher contrast) muted text */
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -87,8 +87,9 @@ img {
 
 /* Header & Nav */
 .header {
-    background-color: rgba(244, 241, 234, 0.98);
-    backdrop-filter: blur(10px);
+    background-color: rgba(248, 246, 241, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 25px 0;
     position: sticky;
     top: 0;
@@ -183,14 +184,16 @@ img {
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-primary);
 }
 
 .btn-outline {
@@ -217,14 +220,23 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(244, 241, 234, 0.4);
+    background: rgba(24, 30, 24, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    color: var(--color-primary);
+    color: var(--color-white); /* White text on hero for maximum "brightness" */
     max-width: 900px;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
@@ -427,6 +439,18 @@ img {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Newsletter Section - Glassmorphism */
+#newsletter-section {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 60px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Footer */
