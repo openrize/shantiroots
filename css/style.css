@@ -7,8 +7,8 @@
     --color-bg: #F8F6F1; /* Slightly brighter warm beige */
     --color-bg-alt: #F0EDE4; 
     --color-white: #ffffff;
-    --color-text: #1A1A1A; /* Brighter (higher contrast) text */
-    --color-text-muted: #444444; /* Brighter (higher contrast) muted text */
+    --color-text: #000000; /* Max contrast Pure Black */
+    --color-text-muted: #222222; /* Bolder muted text */
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -31,7 +31,9 @@ body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
-    line-height: 1.6;
+    line-height: 1.8; /* Increased for better readability */
+    font-size: 18px; /* Larger base font size */
+    font-weight: 500; /* Bolder body text */
     overflow-x: hidden;
 }
 
@@ -231,12 +233,13 @@ img {
     color: var(--color-white); /* White text on hero for maximum "brightness" */
     max-width: 900px;
     padding: 60px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.4); /* Darker overlay for text separation */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Added for legibility */
 }
 
 .hero h1 {
@@ -244,22 +247,24 @@ img {
     margin-bottom: 10px;
     line-height: 1.1;
     font-weight: 400;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5); /* Stronger shadow */
 }
 
 .hero p.tagline {
     font-size: 1.8rem;
     font-family: var(--font-heading);
     margin-bottom: 30px;
-    color: var(--color-primary-soft);
+    color: var(--color-white); /* Pure white for visibility */
+    opacity: 0.95;
 }
 
 .hero p.description {
-    font-size: 1.05rem;
+    font-size: 1.2rem; /* Slightly larger */
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    color: var(--color-text-muted);
+    color: var(--color-white); /* Pure white for visibility */
     line-height: 1.8;
 }
 
@@ -443,14 +448,15 @@ img {
 
 /* Newsletter Section - Glassmorphism */
 #newsletter-section {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.9); /* Much less transparent for text clarity */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 60px;
     margin-top: 50px;
     margin-bottom: 50px;
+    color: #000000;
 }
 
 /* Footer */
