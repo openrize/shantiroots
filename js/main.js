@@ -182,6 +182,8 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('shantiroots-cart') || '[]');
     const cartBtn = document.querySelector('button[aria-label="Cart"]');
     if (cartBtn) {
-        cartBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> ${cart.length > 0 ? `<span class="cart-badge">${cart.length}</span>` : ''}`;
+        cartBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>${cart.length > 0 ? ` <span class="cart-badge">${cart.length}</span>` : ''}`;
+        cartBtn.style.cursor = 'pointer';
+        cartBtn.onclick = () => { window.location.href = '/checkout.html'; };
     }
 }
