@@ -162,7 +162,7 @@ function initNewsletter() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const email = form.querySelector('input').value;
-            alert(`Thank you for subscribing! A 10% discount code has been sent to ${email}.`);
+            showToast(`Thank you for subscribing! A 10% discount code has been sent to ${email}.`);
             form.reset();
         });
     }
@@ -175,7 +175,7 @@ window.addToCart = (id) => {
     cart.push(product);
     localStorage.setItem('shantiroots-cart', JSON.stringify(cart));
     updateCartCount();
-    alert(`Added ${product.name} to cart!`);
+    showToast(`Added ${product.name} to cart!`);
 };
 
 function updateCartCount() {
