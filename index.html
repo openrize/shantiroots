@@ -3,19 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShantiRoots — Ayurvedic Self-Care, Wellness & Herbal Products</title>
+    <title>ShantiRoots — Ayurvedic Self-Care, Wellness &amp; Herbal Products</title>
     <meta name="description" content="Shop ShantiRoots for authentic Ayurvedic supplements, skincare, and wellness products. Natural, herbal, and designed for holistic self-care.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/toast.css">
+    <style>
+        /* Proof Bar */
+        .proof-bar {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 0;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        .proof-bar-inner {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .proof-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.92;
+        }
+        .proof-bar-item i { font-size: 1rem; }
+
+        /* Shop by Goal */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .goal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: var(--color-text);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 2px solid transparent;
+        }
+        .goal-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: var(--color-primary);
+        }
+        .goal-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .goal-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+        .goal-card p {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Trust Badges */
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px 20px;
+        }
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            max-width: 150px;
+        }
+        .trust-badge i {
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+        .trust-badge span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .trust-badge small {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Stars */
+        .stars { color: #d4a853; font-size: 0.9rem; margin-bottom: 8px; }
+
+        /* Sticky Mobile CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            z-index: 1000;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 768px) {
+            .sticky-cta { display: block; }
+            body { padding-bottom: 56px; }
+            .proof-bar-inner { gap: 15px; }
+        }
+    </style>
 </head>
 <body>
     <script src="/js/toast.js"></script>
@@ -39,42 +158,138 @@
     </header>
 
     <main id="app">
+        <!-- HERO -->
         <section id="hero" class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content container">
                 <h1 class="fade-up">ShantiRoots</h1>
-                <p class="tagline fade-up" style="animation-delay: 0.1s;">Ayurvedic Self-Care for Mind, Body & Soul</p>
-                <p class="description fade-up" style="animation-delay: 0.2s;">Discover herbal wellness, skincare, and relaxation products designed for balance, vitality, and inner peace.</p>
+                <p class="tagline fade-up" style="animation-delay: 0.1s;">Ayurvedic Wellness for Modern Life</p>
+                <p class="description fade-up" style="animation-delay: 0.2s;">Discover herbal supplements, natural skincare, and relaxation rituals rooted in ancient Ayurvedic tradition — crafted for the way you live today.</p>
                 <div class="hero-btns fade-up" style="animation-delay: 0.3s;">
                     <a href="/shop.html" class="btn btn-primary">Shop Now</a>
-                    <a href="#collections" class="btn btn-secondary">Explore Collections</a>
+                    <a href="#shop-by-goal" class="btn btn-secondary">Shop by Goal</a>
                 </div>
-                <p class="hero-badges fade-up" style="animation-delay: 0.4s; margin-top: 40px; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--color-primary-soft);">Organic • Herbal • Authentic Ayurveda</p>
+                <p class="hero-badges fade-up" style="animation-delay: 0.4s; margin-top: 40px; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--color-primary-soft);">100% Organic &bull; Cruelty-Free &bull; Small-Batch USA Made</p>
             </div>
         </section>
 
+        <!-- PROOF BAR -->
+        <div class="proof-bar">
+            <div class="proof-bar-inner container">
+                <div class="proof-bar-item"><i class="fa-solid fa-leaf"></i> Organic &amp; Herbal Ingredients</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-flask"></i> Small-Batch Formulas</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-lock"></i> Secure Checkout</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-truck"></i> Free Shipping $75+</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-rotate-left"></i> 30-Day Guarantee</div>
+            </div>
+        </div>
+
+        <!-- COLLECTIONS -->
         <section id="collections" class="section container">
             <div class="category-grid" id="category-grid">
                 <!-- Categories rendered here -->
             </div>
         </section>
 
+        <!-- BEST SELLERS -->
         <section id="best-sellers" class="section" style="background-color: var(--color-bg-alt);">
             <div class="container">
                 <h2 class="section-title">Best Sellers</h2>
-                <p style="text-align: center; margin-top: -40px; margin-bottom: 50px; color: var(--color-text-muted); font-style: italic;">Our most-loved Ayurvedic products.</p>
+                <p style="text-align: center; margin-top: -40px; margin-bottom: 50px; color: var(--color-text-muted); font-style: italic;">Our most-loved Ayurvedic products — backed by real results.</p>
                 <div class="product-grid" id="featured-products">
-                    <!-- Products rendered here -->
+                    <!-- Products rendered here by main.js -->
+                </div>
+                <div style="text-align:center; margin-top:50px;">
+                    <a href="/shop.html" class="btn btn-primary">View All Products</a>
                 </div>
             </div>
         </section>
 
+        <!-- SHOP BY GOAL -->
+        <section id="shop-by-goal" class="section container">
+            <h2 class="section-title">Shop by Goal</h2>
+            <p style="text-align:center; margin-top:-40px; margin-bottom:10px; color:var(--color-text-muted);">What does your body need today?</p>
+            <div class="goals-grid">
+                <a href="/shop.html?category=relaxation" class="goal-card">
+                    <span class="goal-icon">🌙</span>
+                    <h3>Better Sleep</h3>
+                    <p>Calm your mind &amp; drift off naturally</p>
+                </a>
+                <a href="/shop.html?category=relaxation" class="goal-card">
+                    <span class="goal-icon">🧘</span>
+                    <h3>Stress Relief</h3>
+                    <p>Ground yourself &amp; find your center</p>
+                </a>
+                <a href="/shop.html?category=skincare" class="goal-card">
+                    <span class="goal-icon">✨</span>
+                    <h3>Glowing Skin</h3>
+                    <p>Brighten &amp; nourish from the inside out</p>
+                </a>
+                <a href="/shop.html?category=wellness" class="goal-card">
+                    <span class="goal-icon">💪</span>
+                    <h3>Immunity</h3>
+                    <p>Strengthen your body's natural defenses</p>
+                </a>
+                <a href="/shop.html?category=detox" class="goal-card">
+                    <span class="goal-icon">🌿</span>
+                    <h3>Digestion</h3>
+                    <p>Support gut health &amp; feel lighter</p>
+                </a>
+                <a href="/shop.html?category=detox" class="goal-card">
+                    <span class="goal-icon">🔆</span>
+                    <h3>Detox &amp; Cleanse</h3>
+                    <p>Renew from within with herbal purifiers</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- TRUST BADGES -->
+        <section class="section" style="background-color:var(--color-bg-alt);">
+            <div class="container">
+                <h2 class="section-title">Why Choose ShantiRoots</h2>
+                <div class="trust-bar">
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>100% Organic</span>
+                        <small>No synthetic pesticides or GMOs</small>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Cruelty-Free</span>
+                        <small>Never tested on animals</small>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>30-Day Guarantee</span>
+                        <small>Full refund if not satisfied</small>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-industry"></i>
+                        <span>USA Manufactured</span>
+                        <small>FDA-registered facility</small>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Free Shipping</span>
+                        <small>On all orders over $75</small>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Secure Checkout</span>
+                        <small>SSL encrypted payments</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESSENCE OF AYURVEDA -->
         <section id="essence" class="section container">
             <div class="split-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
                 <div class="essence-content">
-                    <h2 style="font-size: 2.8rem; margin-bottom: 30px; font-family: var(--font-heading); color: var(--color-primary);">The Essence of Ayurveda</h2>
-                    <p style="margin-bottom: 25px; line-height: 1.8; color: var(--color-text-muted);">Embrace holistic wellness with ShantiRoots. Our natural, Ayurvedic remedies nurture your body, mind, and spirit. We combine ancient wisdom with modern quality standards to bring you products that truly transform.</p>
-                    <a href="/about.html" class="btn btn-primary">Learn More</a>
+                    <h2 style="font-size: 2.8rem; margin-bottom: 30px; font-family: var(--font-heading); color: var(--color-primary);">Ancient Wisdom, Modern Quality</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.8; color: var(--color-text-muted);">ShantiRoots was born from a deep passion for Ayurvedic wisdom and its profound impact on modern wellness. We source organic herbs from trusted farms in India — the birthplace of Ayurveda.</p>
+                    <p style="margin-bottom: 30px; line-height: 1.8; color: var(--color-text-muted);">Every product is formulated and manufactured in small batches in an FDA-registered US facility, combining ancient recipes with modern quality standards.</p>
+                    <a href="/about.html" class="btn btn-primary">Our Story</a>
                 </div>
                 <div class="essence-image" style="position: relative;">
                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000" alt="Essence of Ayurveda" style="width: 100%; border-radius: 4px; box-shadow: var(--card-shadow);">
@@ -82,49 +297,67 @@
             </div>
         </section>
 
+        <!-- TESTIMONIALS -->
         <section id="testimonials" class="section" style="background-color: var(--color-bg-alt);">
             <div class="container">
-                <h2 class="section-title">What Our Customers Say</h2>
-                <div class="testimonial-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;">
-                    <div class="testimonial-card" style="background: white; padding: 40px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 20px;">
-                        <img src="https://i.pravatar.cc/100?u=priya" alt="Priya S." style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
-                        <div>
-                            <p style="font-style: italic; margin-bottom: 10px; font-size: 0.95rem;">"ShantiRoots has transformed my wellness routine. I feel more balanced and energized."</p>
-                            <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-primary);">— Priya S.</h4>
+                <h2 class="section-title">Real Results, Real People</h2>
+                <div class="testimonial-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
+                    <div class="testimonial-card" style="background: white; padding: 35px; box-shadow: var(--card-shadow); border-radius:8px;">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 18px; font-size: 0.95rem; line-height:1.7;">"ShantiRoots has transformed my wellness routine. The Ashwagandha capsules genuinely helped my stress levels. I feel more balanced and energized every single day."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <img src="https://i.pravatar.cc/60?u=priya_s" alt="Priya S." style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <div><strong style="font-family:var(--font-heading); color:var(--color-primary);">Priya S.</strong><br><small style="color:var(--color-text-muted);">Chicago, IL</small></div>
                         </div>
                     </div>
-                    <div class="testimonial-card" style="background: white; padding: 40px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 20px;">
-                        <img src="https://i.pravatar.cc/100?u=anjali" alt="Anjali M." style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
-                        <div>
-                            <p style="font-style: italic; margin-bottom: 10px; font-size: 0.95rem;">"The herbal glow cream is amazing! My skin has never looked better!"</p>
-                            <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-primary);">— Anjali M.</h4>
+                    <div class="testimonial-card" style="background: white; padding: 35px; box-shadow: var(--card-shadow); border-radius:8px;">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 18px; font-size: 0.95rem; line-height:1.7;">"The Turmeric Glow Cream is incredible — my skin is visibly brighter and more even after just two weeks. I've recommended it to everyone in my family."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <img src="https://i.pravatar.cc/60?u=anjali_m" alt="Anjali M." style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <div><strong style="font-family:var(--font-heading); color:var(--color-primary);">Anjali M.</strong><br><small style="color:var(--color-text-muted);">Austin, TX</small></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" style="background: white; padding: 35px; box-shadow: var(--card-shadow); border-radius:8px;">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                        <p style="font-style: italic; margin-bottom: 18px; font-size: 0.95rem; line-height:1.7;">"I was skeptical at first but the Calming Herbal Tea genuinely helps me unwind after a long day. Falls asleep faster, wakes up clearer. Love this brand."</p>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <img src="https://i.pravatar.cc/60?u=ravi_k" alt="Ravi K." style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <div><strong style="font-family:var(--font-heading); color:var(--color-primary);">Ravi K.</strong><br><small style="color:var(--color-text-muted);">New York, NY</small></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- NEWSLETTER -->
         <section id="newsletter-section" class="section container" style="text-align: center;">
             <div style="max-width: 600px; margin: 0 auto;">
-                <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; color: var(--color-primary);">Join Our Wellness Community</h2>
-                <p style="margin-bottom: 30px; color: var(--color-text-muted);">Subscribe now & get 10% off your first order!</p>
-                <form class="newsletter-form" style="display: flex; gap: 10px;">
-                    <input type="email" placeholder="Your email address" required style="flex: 1; padding: 15px; border: 1px solid #ddd; background: white; border-radius: 2px;">
-                    <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Subscribe</button>
+                <p style="text-transform:uppercase; font-size:0.75rem; letter-spacing:0.2em; color:var(--color-primary); margin-bottom:12px;">Free Gift with Signup</p>
+                <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; color: var(--color-primary);">Get Your Free Ayurvedic Self-Care Guide</h2>
+                <p style="margin-bottom: 30px; color: var(--color-text-muted);">Join our wellness community and receive our free Beginner's Guide to Ayurveda — plus an exclusive 10% off your first order.</p>
+                <form class="newsletter-form" style="display: flex; gap: 10px; flex-wrap:wrap;">
+                    <input type="email" placeholder="Your email address" required style="flex: 1; min-width:200px; padding: 15px; border: 1px solid #ddd; background: white; border-radius: 2px;">
+                    <button type="submit" class="btn btn-primary" style="padding: 15px 30px;">Get My Free Guide</button>
                 </form>
+                <p style="font-size:0.78rem; color:var(--color-text-muted); margin-top:14px;"><i class="fa-solid fa-lock" style="margin-right:5px;"></i>No spam. Unsubscribe anytime.</p>
             </div>
         </section>
     </main>
+
+    <!-- STICKY MOBILE CTA -->
+    <a href="/shop.html" class="sticky-cta">Shop Now — Free Shipping $75+ <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></a>
 
     <footer class="footer" style="background-color: var(--color-primary); color: var(--color-white); padding: 80px 0 30px;">
         <div class="container footer-grid">
             <div class="footer-info">
                 <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 20px;">ShantiRoots</h3>
-                <p>Ayurvedic Self-Care for Mind, Body & Soul</p>
+                <p>Ayurvedic Self-Care for Mind, Body &amp; Soul</p>
                 <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://pinterest.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://tiktok.com/@shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -138,7 +371,7 @@
             </div>
             <div class="footer-contact">
                 <h4 style="margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.8;">Contact</h4>
-                <p style="margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> <a href="mailto:openrize@gmail.com" style="color: inherit; text-decoration: none;">openrize@gmail.com</a></p>
+                <p style="margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> <a href="mailto:hello@shantiroots.com" style="color: inherit; text-decoration: none;">hello@shantiroots.com</a></p>
                 <p style="margin-bottom: 10px;"><i class="fa-solid fa-phone" style="margin-right: 10px;"></i> <a href="tel:2243779043" style="color: inherit; text-decoration: none;">224-377-9043</a></p>
                 <p><i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i> Chicago, IL</p>
             </div>

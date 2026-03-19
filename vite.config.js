@@ -11,7 +11,11 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         blog: resolve(__dirname, 'blog.html'),
         checkout: resolve(__dirname, 'checkout.html'),
+        faq: resolve(__dirname, 'faq.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html'),
       },
     },
   },
 });
+

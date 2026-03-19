@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — ShantiRoots</title>
+    <meta name="description" content="Frequently asked questions about ShantiRoots Ayurvedic products, shipping, returns, and ingredients.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/toast.css">
+    <style>
+        .faq-section { max-width: 800px; margin: 0 auto; }
+        .faq-category { margin-bottom: 50px; }
+        .faq-category h2 { font-family: var(--font-heading); color: var(--color-primary); font-size: 1.6rem; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--color-accent); }
+        .faq-item { border-bottom: 1px solid #e8e0d5; }
+        .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--color-text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .faq-question:hover { color: var(--color-primary); }
+        .faq-question i { color: var(--color-primary); transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.open .faq-question i { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer p { padding: 0 0 20px; color: var(--color-text-muted); line-height: 1.8; }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-hero { text-align: center; padding: 60px 20px; background: var(--color-bg-alt); }
+        .faq-hero h1 { font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 15px; }
+        .faq-hero p { color: var(--color-text-muted); font-size: 1.1rem; }
+        .contact-cta { text-align: center; background: var(--color-bg-alt); padding: 50px 20px; border-radius: 8px; margin-top: 60px; }
+        .contact-cta h3 { font-family: var(--font-heading); color: var(--color-primary); margin-bottom: 15px; font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+    <script src="/js/toast.js"></script>
+    <header id="main-header" class="header">
+        <nav class="nav container">
+            <div class="logo"><a href="/index.html">ShantiRoots</a></div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/shop.html">Shop</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="faq-hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about ShantiRoots products, shipping, and more.</p>
+    </div>
+
+    <main class="container section">
+        <div class="faq-section">
+
+            <div class="faq-category">
+                <h2><i class="fa-solid fa-truck" style="margin-right:10px;"></i>Shipping & Delivery</h2>
+                <div class="faq-item">
+                    <button class="faq-question">How long does shipping take? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Standard shipping takes 5–7 business days. Expedited shipping (2–3 business days) is available at checkout. Orders are processed within 1–2 business days.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer free shipping? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Yes! We offer free standard shipping on all orders over $75. Orders under $75 have a flat shipping fee of $9.99.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you ship internationally? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Currently we ship within the United States and Canada. International shipping to other countries is coming soon. Sign up for our newsletter to be notified.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I track my order? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Once your order ships, you will receive a confirmation email with a tracking number. You can use it to track your package directly on our carrier's website.</p></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h2><i class="fa-solid fa-rotate-left" style="margin-right:10px;"></i>Returns & Refunds</h2>
+                <div class="faq-item">
+                    <button class="faq-question">What is your return policy? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>We offer a 30-day satisfaction guarantee. If you are not completely satisfied with your purchase, return it within 30 days for a full refund or exchange — no questions asked.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I start a return? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Email us at hello@shantiroots.com with your order number and reason for return. We will provide a prepaid return shipping label within 1–2 business days.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">When will I receive my refund? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Refunds are processed within 5–7 business days of receiving your returned item. The funds will appear in your original payment method within 3–5 additional business days.</p></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h2><i class="fa-solid fa-leaf" style="margin-right:10px;"></i>Products & Ingredients</h2>
+                <div class="faq-item">
+                    <button class="faq-question">Are your products organic? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Yes! All of our herbs and plant-based ingredients are sourced from certified organic farms. We never use synthetic pesticides, GMOs, or artificial additives.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Are ShantiRoots products vegan and cruelty-free? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>All of our products are 100% vegan and cruelty-free. We never test on animals and do not use any animal-derived ingredients.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Where are your products made? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Our products are formulated and manufactured in small batches in the USA in an FDA-registered facility. Our herbs are sourced from trusted farms in India, known for centuries of Ayurvedic tradition.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Are there any allergens I should know about? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Each product listing includes a full ingredient list. If you have specific allergies, please review the ingredients carefully before purchasing. When in doubt, consult your healthcare provider.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How should I store my products? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Store all products in a cool, dry place away from direct sunlight. Most products have a shelf life of 12–24 months. Check individual product packaging for specific storage instructions.</p></div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h2><i class="fa-solid fa-lock" style="margin-right:10px;"></i>Orders & Payments</h2>
+                <div class="faq-item">
+                    <button class="faq-question">What payment methods do you accept? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>We accept all major credit and debit cards (Visa, Mastercard, American Express, Discover) as well as PayPal and Apple Pay. All payments are secure and encrypted via SSL.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I modify or cancel my order? <i class="fa-solid fa-plus"></i></button>
+                    <div class="faq-answer"><p>Orders can be modified or cancelled within 2 hours of placing them. Please contact us immediately at hello@shantiroots.com with your order number and we will do our best to accommodate your request.</p></div>
+                </div>
+            </div>
+
+            <div class="contact-cta">
+                <h3>Still have questions?</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: 25px;">Our wellness team is happy to help.</p>
+                <a href="/contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>ShantiRoots</h3>
+                <p>Ayurvedic Self-Care for Mind, Body &amp; Soul</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://pinterest.com/shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://tiktok.com/@shantiroots" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/shop.html">Shop</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Join Our Newsletter</h4>
+                <p>Get your free Ayurvedic self-care guide + 10% off your first order</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShantiRoots. All herbal rights reserved.</p>
+            <div class="legal-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms &amp; Conditions</a>
+            </div>
+        </div>
+        <div style="text-align: center; padding: 15px 0 5px; font-size: 0.8rem; opacity: 0.7;">
+            Powered by <a href="https://www.openrize.com" target="_blank" rel="noopener noreferrer" style="color: inherit; font-weight: 700; text-decoration: underline;">Openrize</a>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>
