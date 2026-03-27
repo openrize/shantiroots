@@ -2,7 +2,8 @@ import { categories, products } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Determine which page we are on
-    const isShopPage = window.location.pathname.includes('shop.html');
+    const pathname = window.location.pathname.toLowerCase();
+    const isShopPage = pathname.endsWith('/shop') || pathname.endsWith('/shop.html');
     
     if (isShopPage) {
         initShop();
@@ -27,7 +28,7 @@ function initHome() {
                 <img src="${category.image}" alt="${category.name}">
                 <h3>${category.name}</h3>
                 <div style="font-size: 1.2rem; color: var(--color-secondary);">❦</div>
-                <a href="/shop.html?category=${category.id}" class="stretched-link"></a>
+                <a href="/shop?category=${category.id}" class="stretched-link"></a>
             `;
             // Add custom style for stretched link if not in CSS
             card.style.position = 'relative';
@@ -72,7 +73,7 @@ function initShop() {
             filterAndRenderProducts();
             
             // Update URL without reload
-            const newUrl = currentCategory === 'all' ? '/shop.html' : `/shop.html?category=${currentCategory}`;
+            const newUrl = currentCategory === 'all' ? '/shop' : `/shop?category=${currentCategory}`;
             window.history.pushState({path: newUrl}, '', newUrl);
         }
     });
