@@ -64,9 +64,14 @@
             border-color: var(--color-primary);
         }
         .goal-icon {
-            font-size: 2.2rem;
             margin-bottom: 14px;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+        .goal-icon i {
+            font-size: 2rem;
         }
         .goal-card h3 {
             font-family: var(--font-heading);
@@ -178,8 +183,8 @@
             <div class="proof-bar-inner container">
                 <div class="proof-bar-item"><i class="fa-solid fa-leaf"></i> Organic &amp; Herbal Ingredients</div>
                 <div class="proof-bar-item"><i class="fa-solid fa-flask"></i> Small-Batch Formulas</div>
-                <div class="proof-bar-item"><i class="fa-solid fa-lock"></i> Secure Checkout</div>
-                <div class="proof-bar-item"><i class="fa-solid fa-truck"></i> Free Shipping $75+</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-user-shield"></i> Quote before you buy</div>
+                <div class="proof-bar-item"><i class="fa-solid fa-truck"></i> Shipping quoted on request</div>
                 <div class="proof-bar-item"><i class="fa-solid fa-rotate-left"></i> 30-Day Guarantee</div>
             </div>
         </div>
@@ -195,7 +200,7 @@
         <section id="best-sellers" class="section" style="background-color: var(--color-bg-alt);">
             <div class="container">
                 <h2 class="section-title">Best Sellers</h2>
-                <p style="text-align: center; margin-top: -40px; margin-bottom: 50px; color: var(--color-text-muted); font-style: italic;">Our most-loved Ayurvedic products — backed by real results.</p>
+                <p style="text-align: center; margin-top: -40px; margin-bottom: 50px; color: var(--color-text-muted);">Trusted formulations from our collection—request a personalized quote anytime.</p>
                 <div class="product-grid" id="featured-products">
                     <!-- Products rendered here by main.js -->
                 </div>
@@ -211,32 +216,32 @@
             <p style="text-align:center; margin-top:-40px; margin-bottom:10px; color:var(--color-text-muted);">What does your body need today?</p>
             <div class="goals-grid">
                 <a href="/shop.html?category=relaxation" class="goal-card">
-                    <span class="goal-icon">🌙</span>
+                    <span class="goal-icon"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
                     <h3>Better Sleep</h3>
                     <p>Calm your mind &amp; drift off naturally</p>
                 </a>
                 <a href="/shop.html?category=relaxation" class="goal-card">
-                    <span class="goal-icon">🧘</span>
+                    <span class="goal-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></span>
                     <h3>Stress Relief</h3>
                     <p>Ground yourself &amp; find your center</p>
                 </a>
                 <a href="/shop.html?category=skincare" class="goal-card">
-                    <span class="goal-icon">✨</span>
+                    <span class="goal-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></span>
                     <h3>Glowing Skin</h3>
                     <p>Brighten &amp; nourish from the inside out</p>
                 </a>
                 <a href="/shop.html?category=wellness" class="goal-card">
-                    <span class="goal-icon">💪</span>
+                    <span class="goal-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span>
                     <h3>Immunity</h3>
                     <p>Strengthen your body's natural defenses</p>
                 </a>
                 <a href="/shop.html?category=detox" class="goal-card">
-                    <span class="goal-icon">🌿</span>
+                    <span class="goal-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
                     <h3>Digestion</h3>
                     <p>Support gut health &amp; feel lighter</p>
                 </a>
                 <a href="/shop.html?category=detox" class="goal-card">
-                    <span class="goal-icon">🔆</span>
+                    <span class="goal-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></span>
                     <h3>Detox &amp; Cleanse</h3>
                     <p>Renew from within with herbal purifiers</p>
                 </a>
@@ -266,17 +271,17 @@
                     <div class="trust-badge">
                         <i class="fa-solid fa-industry"></i>
                         <span>USA Manufactured</span>
-                        <small>FDA-registered facility</small>
+                        <small>Quality-controlled domestic production</small>
                     </div>
                     <div class="trust-badge">
                         <i class="fa-solid fa-truck-fast"></i>
-                        <span>Free Shipping</span>
-                        <small>On all orders over $75</small>
+                        <span>Fair shipping</span>
+                        <small>Rates confirmed with your quote</small>
                     </div>
                     <div class="trust-badge">
                         <i class="fa-solid fa-lock"></i>
-                        <span>Secure Checkout</span>
-                        <small>SSL encrypted payments</small>
+                        <span>Privacy first</span>
+                        <small>Your details used only to fulfill inquiries</small>
                     </div>
                 </div>
             </div>
@@ -335,7 +340,7 @@
             <div style="max-width: 600px; margin: 0 auto;">
                 <p style="text-transform:uppercase; font-size:0.75rem; letter-spacing:0.2em; color:var(--color-primary); margin-bottom:12px;">Free Gift with Signup</p>
                 <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; color: var(--color-primary);">Get Your Free Ayurvedic Self-Care Guide</h2>
-                <p style="margin-bottom: 30px; color: var(--color-text-muted);">Join our wellness community and receive our free Beginner's Guide to Ayurveda — plus an exclusive 10% off your first order.</p>
+                <p style="margin-bottom: 30px; color: var(--color-text-muted);">Join our list for the free Beginner's Guide to Ayurveda, seasonal rituals, and subscriber-only wellness offers.</p>
                 <form class="newsletter-form" style="display: flex; gap: 10px; flex-wrap:wrap;">
                     <input type="email" placeholder="Your email address" required style="flex: 1; min-width:200px; padding: 15px; border: 1px solid #ddd; background: white; border-radius: 2px;">
                     <button type="submit" class="btn btn-primary" style="padding: 15px 30px;">Get My Free Guide</button>
@@ -346,7 +351,7 @@
     </main>
 
     <!-- STICKY MOBILE CTA -->
-    <a href="/shop.html" class="sticky-cta">Shop Now — Free Shipping $75+ <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></a>
+    <a href="/shop.html" class="sticky-cta">Shop the collection <i class="fa-solid fa-arrow-right" style="margin-left:8px;" aria-hidden="true"></i></a>
 
     <footer class="footer" style="background-color: var(--color-primary); color: var(--color-white); padding: 80px 0 30px;">
         <div class="container footer-grid">
@@ -377,7 +382,7 @@
             </div>
         </div>
         <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.7; margin-top: 50px;">
-            <p>&copy; 2025 ShantiRoots. All herbal rights reserved.</p>
+            <p>&copy; 2026 ShantiRoots. All rights reserved.</p>
             <div class="legal-links" style="display: flex; gap: 20px;">
                 <a href="/privacy.html">Privacy Policy</a>
                 <a href="/terms.html">Terms &amp; Conditions</a>

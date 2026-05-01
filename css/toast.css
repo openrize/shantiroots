@@ -44,9 +44,11 @@
 }
 
 .toast::before {
-    content: '❦';
-    font-size: 1.2rem;
-    color: #7A9B76; /* Soft green */
+    content: '\2713';
+    font-size: 1rem;
+    font-weight: 700;
+    color: #5a7a56;
+    flex-shrink: 0;
 }
 
 .toast-success {

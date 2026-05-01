@@ -1,4 +1,7 @@
 import { categories, products } from './data.js';
+import { SITE } from './config.js';
+
+const { contact } = SITE;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Determine which page we are on
@@ -27,8 +30,8 @@ function initHome() {
             card.innerHTML = `
                 <img src="${category.image}" alt="${category.name}">
                 <h3>${category.name}</h3>
-                <div style="font-size: 1.2rem; color: var(--color-secondary);">❦</div>
-                <a href="/shop?category=${category.id}" class="stretched-link"></a>
+                <span class="category-card-cue">View collection</span>
+                <a href="/shop.html?category=${category.id}" class="stretched-link" aria-label="View ${category.name}"></a>
             `;
             // Add custom style for stretched link if not in CSS
             card.style.position = 'relative';
@@ -43,6 +46,19 @@ function initHome() {
 }
 
 function initShop() {
+    const introMount = document.getElementById('shop-intro-mount');
+    if (introMount) {
+        introMount.innerHTML = `
+            <p class="shop-intro-lead">Browse our Ayurvedic formulas and wellness essentials. Product pricing is shared on request—we confirm details with you before any commitment.</p>
+            <p class="shop-intro-contact">
+                <span class="shop-intro-label">Sales &amp; support</span>
+                <a href="tel:${contact.phoneTel}">${contact.phoneDisplay}</a>
+                <span class="contact-sep" aria-hidden="true">·</span>
+                <a href="mailto:${contact.email}">${contact.email}</a>
+            </p>
+        `;
+    }
+
     const categoryFiltersList = document.querySelector('#category-filters');
     const shopGrid = document.querySelector('#shop-grid');
     const shopTitle = document.querySelector('#shop-title');
@@ -73,8 +89,8 @@ function initShop() {
             filterAndRenderProducts();
             
             // Update URL without reload
-            const newUrl = currentCategory === 'all' ? '/shop' : `/shop?category=${currentCategory}`;
-            window.history.pushState({path: newUrl}, '', newUrl);
+            const newUrl = currentCategory === 'all' ? '/shop.html' : `/shop.html?category=${currentCategory}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
         }
     });
 
@@ -129,11 +145,16 @@ function renderProducts(productList, container) {
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
-                <p class="product-price" style="font-size: 0.95rem; line-height: 1.5;">
-                    Contact us for pricing<br>
-                    <a href="tel:2243779043">224-377-9043</a> | <a href="mailto:openrize@gmail.com">openrize@gmail.com</a>
-                </p>
-                <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart ❦</button>
+                <div class="product-contact-block">
+                    <p class="product-pricing-label">Pricing by inquiry</p>
+                    <p class="product-pricing-copy">Request a quote—we’ll follow up with next steps.</p>
+                    <div class="product-contact-links">
+                        <a href="tel:${contact.phoneTel}" class="contact-link">${contact.phoneDisplay}</a>
+                        <span class="contact-sep" aria-hidden="true">·</span>
+                        <a href="mailto:${contact.email}" class="contact-link">${contact.email}</a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="addToCart(${product.id})" aria-label="Add ${product.name} to inquiry list">Add to inquiry list</button>
             </div>
         `;
         container.appendChild(card);
@@ -165,8 +186,7 @@ function initNewsletter() {
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = form.querySelector('input').value;
-            showToast(`Thank you for subscribing! A 10% discount code has been sent to ${email}.`);
+            showToast('Thank you for subscribing. We’ll be in touch with wellness tips and offers.', 'success');
             form.reset();
         });
     }
@@ -179,7 +199,7 @@ window.addToCart = (id) => {
     cart.push(product);
     localStorage.setItem('shantiroots-cart', JSON.stringify(cart));
     updateCartCount();
-    showToast(`Added ${product.name} to cart!`);
+    showToast(`Added ${product.name} to your inquiry list.`);
 };
 
 function updateCartCount() {

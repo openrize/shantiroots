@@ -1,3 +1,7 @@
+import { SITE } from './config.js';
+
+const { contact } = SITE;
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCheckout();
     updateCartBadge();
@@ -6,9 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateCartBadge() {
     const cart = JSON.parse(localStorage.getItem('shantiroots-cart') || '[]');
     const cartBtn = document.querySelector('button[aria-label="Cart"]');
-    if (cartBtn && cart.length > 0) {
-        cartBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> <span class="cart-badge">${cart.length}</span>`;
-    }
+    if (!cartBtn) return;
+    cartBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>${cart.length > 0 ? ` <span class="cart-badge">${cart.length}</span>` : ''}`;
+    cartBtn.style.cursor = 'pointer';
+    cartBtn.onclick = () => { window.location.href = '/checkout.html'; };
 }
 
 function renderCheckout() {
@@ -18,9 +23,10 @@ function renderCheckout() {
     if (cart.length === 0) {
         container.innerHTML = `
             <div class="empty-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <p>Your cart is empty.</p>
-                <a href="/shop.html" class="btn btn-primary">Continue Shopping</a>
+                <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                <p>Your inquiry list is empty.</p>
+                <p class="empty-cart-hint">Add products from the shop to request a quote.</p>
+                <a href="/shop.html" class="btn btn-primary">Browse products</a>
             </div>
         `;
         return;
@@ -38,10 +44,13 @@ function renderCheckout() {
     const cartItems = Object.values(itemMap);
 
     container.innerHTML = `
-        <h1 class="section-title" style="text-align:left; margin-bottom:10px;">Your Cart</h1>
-        <p style="color: var(--color-text-muted); margin-bottom: 20px;">
-            Contact us for pricing: <a href="tel:2243779043">224-377-9043</a> | <a href="mailto:openrize@gmail.com">openrize@gmail.com</a>
-        </p>
+        <header class="checkout-page-header">
+            <h1 class="section-title checkout-title">Order inquiry</h1>
+            <p class="checkout-lead">Review your selections and share where to reach you. We’ll confirm pricing, shipping, and payment options before anything is finalized—no card details are collected on this form.</p>
+            <div class="inquiry-callout" role="note">
+                <p><strong>Questions?</strong> Call <a href="tel:${contact.phoneTel}">${contact.phoneDisplay}</a> or email <a href="mailto:${contact.email}">${contact.email}</a>.</p>
+            </div>
+        </header>
         <div class="checkout-wrapper">
             <div class="checkout-left">
                 <!-- Cart Items -->
@@ -51,9 +60,9 @@ function renderCheckout() {
                             <img src="${item.image}" alt="${item.name}">
                             <div class="cart-item-details">
                                 <p class="cart-item-name">${item.name}</p>
-                                <p class="cart-item-price">Quantity: ${item.qty}</p>
+                                <p class="cart-item-meta">Qty ${item.qty} · Quote on request</p>
                             </div>
-                            <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Remove item">
+                            <button type="button" class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Remove item" aria-label="Remove ${item.name} from list">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </li>
@@ -68,7 +77,8 @@ function renderCheckout() {
 
                 <!-- Shipping Form -->
                 <div class="checkout-form" style="margin-top:50px;">
-                    <h2>Shipping Information</h2>
+                    <h2>Contact &amp; shipping</h2>
+                    <p class="form-section-hint">We use this information to prepare your quote and shipping estimate.</p>
                     <form id="checkout-form">
                         <div class="form-grid">
                             <div class="form-group">
@@ -85,7 +95,7 @@ function renderCheckout() {
                             </div>
                             <div class="form-group full-width">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="224-377-9043">
+                                <input type="tel" id="phone" name="phone" placeholder="${contact.phoneDisplay}">
                             </div>
                             <div class="form-group full-width">
                                 <label for="address">Street Address</label>
@@ -115,31 +125,19 @@ function renderCheckout() {
                             </div>
                         </div>
 
-                        <h2 style="margin-top:40px;">Payment Details</h2>
+                        <h2 style="margin-top:40px;">Notes</h2>
                         <div class="form-grid">
                             <div class="form-group full-width">
-                                <label for="card-name">Name on Card</label>
-                                <input type="text" id="card-name" name="card_name" placeholder="Jane Doe" required>
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="card-number">Card Number</label>
-                                <input type="text" id="card-number" name="card_number" placeholder="•••• •••• •••• ••••" maxlength="19" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="expiry">Expiry Date</label>
-                                <input type="text" id="expiry" name="expiry" placeholder="MM / YY" maxlength="7" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cvv">CVV</label>
-                                <input type="password" id="cvv" name="cvv" placeholder="•••" maxlength="4" required>
+                                <label for="order-notes">Order notes <span class="label-optional">(optional)</span></label>
+                                <textarea id="order-notes" name="order_notes" rows="4" placeholder="Timing, product questions, or special requests…"></textarea>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:30px; padding:18px; font-size:1rem; letter-spacing:0.05em;">
-                            <i class="fa-solid fa-lock" style="margin-right:8px;"></i>Submit Inquiry
+                        <button type="submit" class="btn btn-primary checkout-submit">
+                            <i class="fa-solid fa-paper-plane" style="margin-right:8px;" aria-hidden="true"></i>Submit order inquiry
                         </button>
-                        <p style="text-align:center; font-size:0.8rem; color:var(--color-text-muted); margin-top:12px;">
-                            We will contact you to confirm pricing and finalize your order.
+                        <p class="checkout-footnote">
+                            A team member will respond with pricing and payment options. This demo does not process or store payment data.
                         </p>
                     </form>
                 </div>
@@ -147,27 +145,25 @@ function renderCheckout() {
 
             <!-- Order Summary Sidebar -->
             <aside class="order-summary">
-                <h3>Order Summary</h3>
-                <p style="font-size:0.9rem; color:var(--color-text-muted); margin-bottom:15px;">
-                    Contact us for pricing details.
-                </p>
+                <h3>Inquiry summary</h3>
+                <p class="order-summary-intro">Line items for your quote. Totals are issued after we confirm details with you.</p>
                 ${cartItems.map(item => `
                     <div class="summary-row">
                         <span>${item.name} × ${item.qty}</span>
-                        <span>Contact for price</span>
+                        <span class="summary-note">Quote</span>
                     </div>
                 `).join('')}
-                <div class="summary-row" style="border-top:1px solid #ddd; padding-top:15px; margin-top:10px;">
-                    <span>Pricing</span>
-                    <span>Contact us</span>
+                <div class="summary-row summary-divider">
+                    <span>Estimates</span>
+                    <span class="summary-note">On request</span>
                 </div>
                 <div class="summary-row">
                     <span>Phone</span>
-                    <span><a href="tel:2243779043">224-377-9043</a></span>
+                    <span><a href="tel:${contact.phoneTel}">${contact.phoneDisplay}</a></span>
                 </div>
                 <div class="summary-row total">
                     <span>Email</span>
-                    <span><a href="mailto:openrize@gmail.com">openrize@gmail.com</a></span>
+                    <span><a href="mailto:${contact.email}">${contact.email}</a></span>
                 </div>
             </aside>
         </div>
@@ -178,11 +174,11 @@ function renderCheckout() {
         e.preventDefault();
         localStorage.removeItem('shantiroots-cart');
         container.innerHTML = `
-            <div class="empty-cart" style="padding:100px 20px;">
-                <i class="fa-solid fa-circle-check" style="color:var(--color-primary); font-size:5rem; margin-bottom:20px; display:block;"></i>
-                <h2 style="font-family:var(--font-heading); color:var(--color-primary); margin-bottom:15px;">Thank You!</h2>
-                <p style="color:var(--color-text-muted); margin-bottom:30px; font-size:1.1rem;">We received your request. Our team will contact you shortly with pricing details.</p>
-                <a href="/shop.html" class="btn btn-primary">Continue Shopping</a>
+            <div class="empty-cart checkout-success">
+                <i class="fa-solid fa-circle-check checkout-success-icon" aria-hidden="true"></i>
+                <h2 class="checkout-success-title">Inquiry received</h2>
+                <p class="checkout-success-copy">Thank you. We’ve captured your request and will follow up shortly with pricing and next steps.</p>
+                <a href="/shop.html" class="btn btn-primary">Back to shop</a>
             </div>
         `;
     });
