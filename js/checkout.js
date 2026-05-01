@@ -1,5 +1,3 @@
-import { products } from './data.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     renderCheckout();
     updateCartBadge();
@@ -39,12 +37,11 @@ function renderCheckout() {
     });
     const cartItems = Object.values(itemMap);
 
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-    const shipping = subtotal > 75 ? 0 : 9.99;
-    const total = subtotal + shipping;
-
     container.innerHTML = `
         <h1 class="section-title" style="text-align:left; margin-bottom:10px;">Your Cart</h1>
+        <p style="color: var(--color-text-muted); margin-bottom: 20px;">
+            Contact us for pricing: <a href="tel:2243779043">224-377-9043</a> | <a href="mailto:openrize@gmail.com">openrize@gmail.com</a>
+        </p>
         <div class="checkout-wrapper">
             <div class="checkout-left">
                 <!-- Cart Items -->
@@ -54,9 +51,8 @@ function renderCheckout() {
                             <img src="${item.image}" alt="${item.name}">
                             <div class="cart-item-details">
                                 <p class="cart-item-name">${item.name}</p>
-                                <p class="cart-item-price">$${item.price.toFixed(2)} × ${item.qty}</p>
+                                <p class="cart-item-price">Quantity: ${item.qty}</p>
                             </div>
-                            <span style="font-weight:700; margin-right:10px;">$${(item.price * item.qty).toFixed(2)}</span>
                             <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Remove item">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
@@ -140,10 +136,10 @@ function renderCheckout() {
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width:100%; margin-top:30px; padding:18px; font-size:1rem; letter-spacing:0.05em;">
-                            <i class="fa-solid fa-lock" style="margin-right:8px;"></i>Place Order — $${total.toFixed(2)}
+                            <i class="fa-solid fa-lock" style="margin-right:8px;"></i>Submit Inquiry
                         </button>
                         <p style="text-align:center; font-size:0.8rem; color:var(--color-text-muted); margin-top:12px;">
-                            <i class="fa-solid fa-shield-halved" style="margin-right:4px;"></i>Your payment info is secure &amp; encrypted.
+                            We will contact you to confirm pricing and finalize your order.
                         </p>
                     </form>
                 </div>
@@ -152,25 +148,27 @@ function renderCheckout() {
             <!-- Order Summary Sidebar -->
             <aside class="order-summary">
                 <h3>Order Summary</h3>
+                <p style="font-size:0.9rem; color:var(--color-text-muted); margin-bottom:15px;">
+                    Contact us for pricing details.
+                </p>
                 ${cartItems.map(item => `
                     <div class="summary-row">
                         <span>${item.name} × ${item.qty}</span>
-                        <span>$${(item.price * item.qty).toFixed(2)}</span>
+                        <span>Contact for price</span>
                     </div>
                 `).join('')}
                 <div class="summary-row" style="border-top:1px solid #ddd; padding-top:15px; margin-top:10px;">
-                    <span>Subtotal</span>
-                    <span>$${subtotal.toFixed(2)}</span>
+                    <span>Pricing</span>
+                    <span>Contact us</span>
                 </div>
                 <div class="summary-row">
-                    <span>Shipping</span>
-                    <span>${shipping === 0 ? '<span style="color:green;">FREE</span>' : `$${shipping.toFixed(2)}`}</span>
+                    <span>Phone</span>
+                    <span><a href="tel:2243779043">224-377-9043</a></span>
                 </div>
                 <div class="summary-row total">
-                    <span>Total</span>
-                    <span>$${total.toFixed(2)}</span>
+                    <span>Email</span>
+                    <span><a href="mailto:openrize@gmail.com">openrize@gmail.com</a></span>
                 </div>
-                ${subtotal < 75 ? `<p style="font-size:0.8rem; color:var(--color-text-muted); margin-top:15px; text-align:center;">Add $${(75 - subtotal).toFixed(2)} more for FREE shipping!</p>` : ''}
             </aside>
         </div>
     `;
@@ -182,8 +180,8 @@ function renderCheckout() {
         container.innerHTML = `
             <div class="empty-cart" style="padding:100px 20px;">
                 <i class="fa-solid fa-circle-check" style="color:var(--color-primary); font-size:5rem; margin-bottom:20px; display:block;"></i>
-                <h2 style="font-family:var(--font-heading); color:var(--color-primary); margin-bottom:15px;">Thank You for Your Order!</h2>
-                <p style="color:var(--color-text-muted); margin-bottom:30px; font-size:1.1rem;">Your Ayurvedic wellness package is on its way. We'll send a confirmation to your email shortly.</p>
+                <h2 style="font-family:var(--font-heading); color:var(--color-primary); margin-bottom:15px;">Thank You!</h2>
+                <p style="color:var(--color-text-muted); margin-bottom:30px; font-size:1.1rem;">We received your request. Our team will contact you shortly with pricing details.</p>
                 <a href="/shop.html" class="btn btn-primary">Continue Shopping</a>
             </div>
         `;

@@ -87,10 +87,10 @@ function initShop() {
 
         // Sorting
         const sortBy = sortSelect.value;
-        if (sortBy === 'price-low') {
-            filtered.sort((a, b) => a.price - b.price);
-        } else if (sortBy === 'price-high') {
-            filtered.sort((a, b) => b.price - a.price);
+        if (sortBy === 'name-az') {
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortBy === 'name-za') {
+            filtered.sort((a, b) => b.name.localeCompare(a.name));
         }
 
         renderProducts(filtered, shopGrid);
@@ -129,7 +129,10 @@ function renderProducts(productList, container) {
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
-                <p class="product-price">$${product.price.toFixed(2)}</p>
+                <p class="product-price" style="font-size: 0.95rem; line-height: 1.5;">
+                    Contact us for pricing<br>
+                    <a href="tel:2243779043">224-377-9043</a> | <a href="mailto:openrize@gmail.com">openrize@gmail.com</a>
+                </p>
                 <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart ❦</button>
             </div>
         `;
