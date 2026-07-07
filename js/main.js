@@ -1,5 +1,6 @@
 import { categories, products } from './data.js';
 import { SITE } from './config.js';
+import './analytics.js';
 
 const { contact } = SITE;
 
@@ -49,7 +50,7 @@ function initShop() {
     const introMount = document.getElementById('shop-intro-mount');
     if (introMount) {
         introMount.innerHTML = `
-            <p class="shop-intro-lead">Browse our Ayurvedic formulas and wellness essentials. Product pricing is shared on request—we confirm details with you before any commitment.</p>
+            <p class="shop-intro-lead">Browse our thoughtfully crafted herbal formulas and wellness essentials. Pricing is shared on request — we confirm details with you before any commitment.</p>
             <p class="shop-intro-contact">
                 <span class="shop-intro-label">Sales &amp; support</span>
                 <a href="tel:${contact.phoneTel}">${contact.phoneDisplay}</a>
@@ -139,15 +140,25 @@ function renderProducts(productList, container) {
     productList.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
+        const ingredients = (product.ingredients || []).join(', ');
         card.innerHTML = `
             <div class="product-img">
                 <img src="${product.image}" alt="${product.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
+                <p class="product-pricing-copy" style="margin-bottom:14px;">${product.description || ''}</p>
+                <details class="product-details">
+                    <summary>Ingredients &amp; ritual</summary>
+                    <div class="product-details-body">
+                        ${ingredients ? `<strong>Ingredients</strong>${ingredients}` : ''}
+                        ${product.usage ? `<strong>How to use</strong>${product.usage}` : ''}
+                        ${product.caution ? `<strong>Good to know</strong>${product.caution}` : ''}
+                    </div>
+                </details>
                 <div class="product-contact-block">
-                    <p class="product-pricing-label">Pricing by inquiry</p>
-                    <p class="product-pricing-copy">Request a quote—we’ll follow up with next steps.</p>
+                    <p class="product-pricing-label">Pricing on request</p>
+                    <p class="product-pricing-copy">Share your details and we’ll send a personalized quote.</p>
                     <div class="product-contact-links">
                         <a href="tel:${contact.phoneTel}" class="contact-link">${contact.phoneDisplay}</a>
                         <span class="contact-sep" aria-hidden="true">·</span>
